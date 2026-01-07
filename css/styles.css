@@ -1,0 +1,388 @@
+/* =========================================================
+   GHIA – VARIABLES GLOBALES
+   ========================================================= */
+:root {
+    --ghia-primary: #24324A;
+    --ghia-secondary: #1E2D3B;
+    --ghia-accent:    #4a618a;
+
+    /* Rutas desde /css/styles.css */
+    --ghia-bg-hero: url('../assets/img/bg.jpg');
+    --ghia-report-1: url('../assets/img/demo-01.jpg');
+    --ghia-report-2: url('../assets/img/demo-02.jpg');
+}
+
+/* =========================================================
+   BASE / RESET
+   ========================================================= */
+html,
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: #111;
+}
+
+/* =========================================================
+   NAV / HEADER
+   ========================================================= */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s ease;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--ghia-primary);
+    transition: width 0.25s ease-in-out;
+}
+
+.nav-link:hover {
+    color: var(--ghia-primary);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Header blur base */
+#ghia-header>div {
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    background: rgba(255, 255, 255, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Header al scrollear */
+.scrolled-header {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(255, 255, 255, 0.82);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   HERO + PARALLAX
+   ========================================================= */
+.hero-bg {
+    background-image: var(--ghia-bg-hero);
+    background-position: center;
+    background-size: cover;
+    min-height: 70vh;
+}
+
+@media (min-width: 1024px) {
+    .hero-bg {
+        min-height: 90vh;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.parallax-bg {
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* =========================================================
+   REPORT CARDS – BLUR + SHINE + GLASS REFLECTION
+   ========================================================= */
+.report-card {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+.report-card::after {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -50%;
+    width: 60%;
+    height: 300%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-20deg);
+    animation: shineMove 6s linear infinite;
+    pointer-events: none;
+}
+
+.report-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+}
+
+.report-label {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+    color: #fff;
+}
+
+.report-label h4,
+.report-label p {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes shineMove {
+    0% {
+        transform: translateX(-180%) skewX(-20deg);
+    }
+
+    100% {
+        transform: translateX(180%) skewX(-20deg);
+    }
+}
+
+/* Imagen 1 */
+.report-img-1 {
+    background-image: var(--ghia-report-1);
+}
+
+/* Imagen 2 */
+.report-img-2 {
+    background-image: var(--ghia-report-2);
+}
+
+/* =========================================================
+   FADE / REVEAL ANIMATIONS
+   ========================================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .9s ease-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: none;
+    transition: .8s cubic-bezier(.2, .9, .2, 1);
+}
+
+/* =========================================================
+   GLASSMORPHISM
+   ========================================================= */
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.glass-footer {
+    background: var(--ghia-primary);
+    backdrop-filter: blur(20px);
+    color: #fff;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        90deg,
+        var(--ghia-accent),
+        var(--ghia-secondary)
+    );
+
+    padding: .8rem 1.3rem;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+    transition:
+        transform .18s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+/* Sheen sutil (no se mueve, solo aparece) */
+.btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top left,
+        rgba(255, 255, 255, 0.45),
+        transparent 60%
+    );
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Hover */
+.btn-primary:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.25),
+        0 0 0 4px rgba(138, 186, 250, 0.28);
+}
+
+/* Active */
+.btn-primary:active {
+    transform: translateY(0);
+    filter: brightness(0.98);
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.btn-secondary {
+    padding: .8rem 1.3rem;
+    border-radius: 12px;
+    background: rgba(255,255,255,.7);
+    color: #111;
+    font-weight: 600;
+    border: 1px solid rgba(0,0,0,.15);
+
+    box-shadow: inset 0 0 0 rgba(0,0,0,0);
+    transition:
+        box-shadow .25s ease,
+        transform .18s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        inset 0 0 0 2px rgba(138, 168, 250, 0.35),
+        0 6px 16px rgba(0,0,0,.12);
+}
+
+/* =========================================================
+   SHINE EFFECT
+   ========================================================= */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::after {
+    content: "";
+    position: absolute;
+    top: -150%;
+    left: -50%;
+    width: 150%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: skewX(-20deg);
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-200%) skewX(-20deg);
+    }
+
+    100% {
+        transform: translateX(200%) skewX(-20deg);
+    }
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+.stat-number {
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+
+.verificados-wrapper {
+    position: relative;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+
+/* -----------------------------
+   CARRUSEL
+------------------------------ */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 5px;
+}
+
+#carouselVerificados {
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+#carouselVerificados::-webkit-scrollbar {
+    height: 8px;
+}
+
+#carouselVerificados::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+}
+
+/* Hide scroll bar pero permite scroll horizontal */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+/* -----------------------------
+   CARD PREMIUM
+------------------------------ */
+.card-hover {
+    transition: all .3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
