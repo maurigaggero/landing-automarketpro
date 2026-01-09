@@ -118,12 +118,11 @@ async function renderVerificados() {
     verificaciones.forEach(v => {
         const div = document.createElement('div');
         div.className = `
-        bg-white rounded-2xl overflow-hidden shadow-lg
-        hover:shadow-2xl hover:-translate-y-[3px]
-        transition-all duration-300 cursor-pointer card-hover
-        flex-shrink-0 snap-start
-        w-[80%] sm:w-[300px] md:w-[220px]
-    `;
+            bg-white rounded-2xl overflow-hidden shadow-lg
+            hover:shadow-2xl hover:-translate-y-[3px]
+            transition-all duration-300 cursor-pointer flex-shrink-0 snap-start
+            w-[90%] sm:w-[300px] md:w-[220px]
+        `;
 
         const link = document.createElement('a');
         link.href = `https://app.automarketpro.com.ar/verificados`;
@@ -131,12 +130,12 @@ async function renderVerificados() {
         link.style.color = 'inherit';
 
         link.innerHTML = `
-        <img src="${v.rutaArchivos[0]}" class="h-40 w-full object-cover" alt="Foto de ${v.dominio}">
-        <div class="p-3">
-            <h6 class="font-semibold text-gray-900 mb-1">${v.marca} ${v.modelo}</h6>
-            <small class="text-gray-500">${v.anio} - ${v.kilometraje} km</small>
-        </div>
-    `;
+            <img src="${v.rutaArchivos[0]}" class="h-72 w-full object-cover" alt="Foto de ${v.dominio}">
+            <div class="p-3">
+                <h6 class="font-semibold text-gray-900 mb-1">${v.marca} ${v.modelo}</h6>
+                <small class="text-gray-500">${v.anio} - ${v.kilometraje} km</small>
+            </div>
+        `;
 
         div.appendChild(link);
         container.appendChild(div);
