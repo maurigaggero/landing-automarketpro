@@ -90,7 +90,7 @@ carousel.addEventListener("scroll", () => {
 
 async function getVerificados(limit = 12) {
     try {
-        const res = await fetch('https://carwatcherapi.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=' + limit);
+        const res = await fetch('https://automarketpro.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=' + limit);
         const data = await res.json();
 
         return data.items || [];
@@ -126,7 +126,7 @@ async function renderVerificados() {
     `;
 
         const link = document.createElement('a');
-        link.href = `https://app.ghia.com.ar/verificados`;
+        link.href = `https://app.automarketpro.com.ar/verificados`;
         link.style.textDecoration = 'none';
         link.style.color = 'inherit';
 
