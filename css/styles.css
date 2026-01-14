@@ -75,7 +75,7 @@ body {
 .hero-bg {
     /* La capa blanca va primero, luego la imagen */
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
         var(--ghia-bg-hero);
     background-position: center;
     background-size: cover;
