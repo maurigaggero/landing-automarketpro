@@ -73,7 +73,10 @@ body {
    HERO + PARALLAX
    ========================================================= */
 .hero-bg {
-    background-image: var(--ghia-bg-hero);
+    /* La capa blanca va primero, luego la imagen */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), 
+        var(--ghia-bg-hero);
     background-position: center;
     background-size: cover;
     min-height: 70vh;
