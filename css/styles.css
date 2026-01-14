@@ -20,7 +20,7 @@ body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     background: #ffffff;
-    color: #1E2D3B;
+    color: var(--ghia-secondary);
 }
 
 /* =========================================================
@@ -95,6 +95,31 @@ body {
     .parallax-bg {
         background-attachment: scroll;
     }
+}
+
+/* =========================================================
+   BRAND COLOR BACKGROUNDS
+   ========================================================= */
+
+/* Nueva clase para secciones con color de marca */
+.bg-primary {
+    background-color: var(--ghia-primary);
+    color: #ffffff;
+}
+
+/* Ajuste para que las glass-cards resalten sobre fondo oscuro */
+.bg-primary .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+.bg-primary .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-primary .nav-link:hover {
+    color: #ffffff;
 }
 
 
