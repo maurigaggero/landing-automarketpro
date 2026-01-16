@@ -76,161 +76,165 @@ window.addEventListener("scroll", () => {
 });
 
 
-/**
- * CONFIGURACIÓN GLOBAL Y EVENTOS
- */
 document.addEventListener('DOMContentLoaded', () => {
-    initStepCarousel();
-    renderVerificados();
+    // 1. Inicializar componentes básicos
     initScrollEffects();
     initMobileMenu();
+    initStepCarousel();
+    renderVerificados();
 });
 
 /**
- * 1. LÓGICA DEL CARRUSEL "PASO A PASO"
+ * EFECTOS VISUALES (Fade-in, Reveal, Header, Parallax)
  */
-function initStepCarousel() {
-    const stepSlider = document.getElementById('carouselSlider');
-    const stepDots = document.querySelectorAll('.step-dot');
-    
-    if (!stepSlider || stepDots.length === 0) return;
-
-    let currentStepSlide = 0;
-    const totalStepSlides = stepDots.length;
-    let autoPlayInterval;
-
-    function updateStepSlider() {
-        stepSlider.style.transform = `translateX(-${currentStepSlide * 100}%)`;
-        
-        stepDots.forEach((dot, index) => {
-            if (index === currentStepSlide) {
-                dot.classList.replace('bg-gray-300', 'bg-blue-600');
-            } else {
-                dot.classList.replace('bg-blue-600', 'bg-gray-300');
+function initScrollEffects() {
+    // Observer para animaciones de entrada
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const isReveal = entry.target.classList.contains("reveal");
+                entry.target.classList.add(isReveal ? "reveal-visible" : "fade-in-visible");
             }
         });
-    }
+    }, { threshold: 0.15 });
 
-    // Definir funciones en el objeto window para que el HTML las encuentre
-    window.moveStepSlider = (direction) => {
-        currentStepSlide = (currentStepSlide + direction + totalStepSlides) % totalStepSlides;
-        updateStepSlider();
-        resetAutoPlay(); // Reinicia el tiempo si el usuario hace click
+    document.querySelectorAll(".fade-in, .reveal").forEach(el => observer.observe(el));
+
+    // Scroll Events: Header, Parallax y Counters
+    const header = document.getElementById("ghia-header");
+    const counters = document.querySelectorAll(".counter");
+    let countersDone = false;
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        // Header glass effect
+        if (header) header.classList.toggle("scrolled-header", scrollY > 10);
+        
+        // Parallax suave
+        document.querySelectorAll(".parallax-bg").forEach(bg => {
+            bg.style.backgroundPositionY = (scrollY * 0.4) + "px";
+        });
+
+        // Counters (solo se ejecutan una vez)
+        if (!countersDone) {
+            counters.forEach(counter => {
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    animateCounter(counter);
+                    countersDone = true; 
+                }
+            });
+        }
+    }, { passive: true });
+}
+
+function animateCounter(counter) {
+    const target = +counter.getAttribute("data-target");
+    const speed = 80;
+    const animate = () => {
+        const value = +counter.innerText;
+        const step = Math.ceil(target / speed);
+        if (value < target) {
+            counter.innerText = Math.min(value + step, target);
+            requestAnimationFrame(animate);
+        }
     };
-
-    window.goToStepSlide = (index) => {
-        currentStepSlide = index;
-        updateStepSlider();
-        resetAutoPlay();
-    };
-
-    function startAutoPlay() {
-        autoPlayInterval = setInterval(() => {
-            currentStepSlide = (currentStepSlide + 1) % totalStepSlides;
-            updateStepSlider();
-        }, 5000);
-    }
-
-    function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
-        startAutoPlay();
-    }
-
-    // Iniciar
-    startAutoPlay();
-
-    // Pausar al pasar el mouse
-    stepSlider.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    stepSlider.parentElement.addEventListener('mouseleave', startAutoPlay);
+    animate();
 }
 
 /**
- * 2. LÓGICA DE VEHÍCULOS VERIFICADOS (API)
+ * CARRUSEL VERIFICADOS (API + Efecto 3D Safari Friendly)
  */
-async function getVerificados(limit = 12) {
-    try {
-        const res = await fetch(`https://automarketpro.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=${limit}`);
-        const data = await res.json();
-        return data.items || [];
-    } catch (err) {
-        console.error('Error al obtener verificaciones:', err);
-        return [];
-    }
-}
-
 async function renderVerificados() {
     const container = document.getElementById('carouselVerificados');
     if (!container) return;
 
-    container.innerHTML = "";
-    container.className = "flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 custom-scrollbar";
+    try {
+        const res = await fetch('https://automarketpro.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=12');
+        const data = await res.json();
+        const items = data.items || [];
 
-    const verificaciones = await getVerificados(12);
-
-    verificaciones.forEach(v => {
-        const imgUrl = (v.rutaArchivos && v.rutaArchivos.length > 0) ? v.rutaArchivos[0] : 'placeholder.jpg';
-        const div = document.createElement('div');
-        div.className = "w-[280px] sm:w-[300px] md:w-[220px] flex-shrink-0 snap-start bg-white rounded-2xl overflow-hidden shadow-lg transition-all carousel-card";
-        
-        div.innerHTML = `
-            <a href="https://app.automarketpro.com.ar/verificados" class="block">
-                <div class="w-full h-52 bg-gray-100 overflow-hidden">
-                    <img src="${imgUrl}" class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" alt="${v.marca}">
+        container.innerHTML = items.map(v => {
+            const imgUrl = (v.rutaArchivos && v.rutaArchivos.length > 0) ? v.rutaArchivos[0] : 'placeholder.jpg';
+            return `
+                <div class="w-[280px] sm:w-[300px] md:w-[240px] snap-start bg-white rounded-2xl overflow-hidden shadow-lg carousel-card">
+                    <a href="https://app.automarketpro.com.ar/verificados" class="block">
+                        <div class="w-full h-48 bg-gray-100 overflow-hidden">
+                            <img src="${imgUrl}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="${v.marca}">
+                        </div>
+                        <div class="p-4">
+                            <h6 class="font-bold text-gray-800 truncate text-sm">${v.marca} ${v.modelo}</h6>
+                            <p class="text-gray-500 text-xs">${v.anio} • ${Number(v.kilometraje).toLocaleString()} km</p>
+                        </div>
+                    </a>
                 </div>
-                <div class="p-3">
-                    <h6 class="font-bold text-gray-800 truncate text-sm">${v.marca} ${v.modelo}</h6>
-                    <p class="text-gray-500 text-xs">${v.anio} • ${Number(v.kilometraje).toLocaleString()} km</p>
-                </div>
-            </a>
-        `;
-        container.appendChild(div);
-    });
+            `;
+        }).join('');
 
-    container.addEventListener("scroll", () => {
-        const cards = container.querySelectorAll(".carousel-card");
-        cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const offset = (window.innerWidth / 2 - rect.left) * 0.03;
-            card.style.transform = `perspective(900px) rotateY(${offset}deg)`;
-        });
-    });
+        // Efecto de rotación optimizado
+        container.addEventListener("scroll", () => {
+            requestAnimationFrame(() => {
+                const cards = container.querySelectorAll(".carousel-card");
+                const centerX = window.innerWidth / 2;
+                
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenter = rect.left + rect.width / 2;
+                    const offset = (centerX - cardCenter) * 0.02; // Sensibilidad
+                    const rotation = Math.max(Math.min(offset, 12), -12); // Límite de 12 grados
+                    
+                    // translateZ(0) es el truco mágico para Safari
+                    card.style.transform = `perspective(1000px) rotateY(${rotation}deg) translateZ(0)`;
+                });
+            });
+        }, { passive: true });
+
+    } catch (err) {
+        console.error('Error:', err);
+    }
 }
 
 /**
- * 3. EFECTOS VISUALES Y MENÚ
+ * PASO A PASO Y MENÚ MOBILE
  */
-function initScrollEffects() {
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add(
-                    entry.target.classList.contains("reveal") ? "reveal-visible" : "fade-in-visible"
-                );
-            }
-        });
-    }, { threshold: 0.2 });
+function initStepCarousel() {
+    const slider = document.getElementById('carouselSlider');
+    const dots = document.querySelectorAll('.step-dot');
+    if (!slider || dots.length === 0) return;
 
-    document.querySelectorAll(".fade-in, .reveal").forEach(el => observer.observe(el));
+    let current = 0;
+    
+    window.moveStepSlider = (dir) => {
+        current = (current + dir + dots.length) % dots.length;
+        update();
+    };
 
-    const header = document.getElementById("ghia-header");
-    window.addEventListener("scroll", () => {
-        if (header) header.classList.toggle("scrolled-header", window.scrollY > 10);
-        
-        document.querySelectorAll(".parallax-bg").forEach(bg => {
-            bg.style.backgroundPositionY = window.pageYOffset * 0.4 + "px";
+    window.goToStepSlide = (idx) => {
+        current = idx;
+        update();
+    };
+
+    function update() {
+        slider.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-blue-600', i === current);
+            dot.classList.toggle('bg-gray-300', i !== current);
         });
-    });
+    }
+    
+    setInterval(() => window.moveStepSlider(1), 5000);
 }
 
 function initMobileMenu() {
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    if (!menuBtn || !mobileMenu) return;
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    if (!btn || !menu) return;
 
-    menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        menuBtn.children[0].classList.toggle("rotate-45");
-        menuBtn.children[1].classList.toggle("opacity-0");
-        menuBtn.children[2].classList.toggle("-rotate-45");
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        btn.children[0].classList.toggle("rotate-45");
+        btn.children[1].classList.toggle("opacity-0");
+        btn.children[2].classList.toggle("-rotate-45");
     });
 }

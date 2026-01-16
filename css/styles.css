@@ -319,6 +319,22 @@ body {
    CARRUSEL
 ------------------------------ */
 
+#carouselVerificados {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+}
+
+.carousel-card {
+    flex: 0 0 auto; /* Evita que Safari colapse el ancho */
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
 .carousel-container {
     position: relative;
     overflow: hidden;
