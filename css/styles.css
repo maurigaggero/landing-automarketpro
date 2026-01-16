@@ -318,10 +318,14 @@ body {
 /* -----------------------------
    CARRUSEL
 ------------------------------ */
+
 .carousel-container {
     position: relative;
     overflow: hidden;
     padding: 10px 5px;
+    display: flex !important;
+    flex-wrap: nowrap !important; 
+    -webkit-overflow-scrolling: touch; 
 }
 
 #carouselVerificados {

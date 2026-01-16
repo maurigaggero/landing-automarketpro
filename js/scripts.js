@@ -103,43 +103,40 @@ async function getVerificados(limit = 12) {
 
 async function renderVerificados() {
     const container = document.getElementById('carouselVerificados');
+    if (!container) return;
+
+    // Limpiamos y configuramos el contenedor para scroll lateral
     container.innerHTML = "";
+    container.className = "flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6";
 
     const verificaciones = await getVerificados(12);
-
-    if (verificaciones.length === 0) {
-        container.innerHTML = `
-            <p class="text-center text-gray-500 mt-3 w-full">
-                No hay vehículos disponibles en este momento.
-            </p>`;
-        return;
-    }
 
     verificaciones.forEach(v => {
         const div = document.createElement('div');
         div.className = `
-            bg-white rounded-2xl overflow-hidden shadow-lg
-            hover:shadow-2xl hover:-translate-y-[3px]
-            transition-all duration-300 cursor-pointer flex-shrink-0 snap-start
-            w-[90%] sm:w-[300px] md:w-[220px]
+                w-[280px]  
+                sm:w-[300px] 
+                md:w-[220px] 
+                flex-shrink-0 
+                snap-start 
+                bg-white rounded-2xl overflow-hidden shadow-lg transition-all
+            `;
+
+        const imgUrl = (v.rutaArchivos && v.rutaArchivos.length > 0) ? v.rutaArchivos[0] : 'placeholder.jpg';
+
+        div.innerHTML = `
+            <a href="https://app.automarketpro.com.ar/verificados" class="block">
+                <div class="w-full h-52 bg-gray-100 overflow-hidden">
+                    <img src="${imgUrl}" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="p-3">
+                    <h6 class="font-bold text-gray-800 truncate text-sm">${v.marca} ${v.modelo}</h6>
+                    <p class="text-gray-500 text-xs">${v.anio} • ${Number(v.kilometraje).toLocaleString()} km</p>
+                </div>
+            </a>
         `;
-
-        const link = document.createElement('a');
-        link.href = `https://app.automarketpro.com.ar/verificados`;
-        link.style.textDecoration = 'none';
-        link.style.color = 'inherit';
-
-        link.innerHTML = `
-            <img src="${v.rutaArchivos[0]}" class="h-72 w-full object-cover" alt="Foto de ${v.dominio}">
-            <div class="p-3">
-                <h6 class="font-semibold text-gray-900 mb-1">${v.marca} ${v.modelo}</h6>
-                <small class="text-gray-500">${v.anio} - ${v.kilometraje} km</small>
-            </div>
-        `;
-
-        div.appendChild(link);
         container.appendChild(div);
     });
-};
+}
 
 document.addEventListener('DOMContentLoaded', renderVerificados);
