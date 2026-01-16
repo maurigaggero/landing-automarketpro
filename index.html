@@ -190,97 +190,84 @@
         </div>
     </section>
 
-    <!-- REPORTS -->
-    <section id="reports" class="py-20">
-       <div class="max-w-6xl mx-auto px-6">
+   <section id="reports" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Paso a paso
+            </h3>
 
-        <h3 class="text-3xl md:text-4xl font-bold  text-center mb-16">
-            Paso a paso.
-        </h3>
-
-        <!-- ROW 1 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-            <!-- TEXT 1 -->
-            <div>
-                <h4 class="text-xl font-bold  mb-3">
-                    1. Completas el formulario de solicitud
-                </h4>
-                <p class=" leading-relaxed">
-                    Nos mandas los datos del auto a verificar y el lugar donde se encuentra.
-                </p>
-            </div>
-
-            <!-- IMAGE 1 -->
-            <div class="fade-in">
-                <img 
-                    src="assets/img/demo-01.png"
-                    alt="Solicitud de verificación Automarketpro"
-                    class="w-full rounded-xl"
-                />
-            </div>
-
-            </div>
-
-            <!-- ROW 2 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-                <!-- IMAGE 2 -->
-                <div class="fade-in">
-                    <img 
-                        src="assets/img/demo-02.png"
-                        alt="Inspección vehicular Automarketpro"
-                        class="w-full rounded-xl"
-                    />
-                </div>
+            <div class="relative overflow-hidden group">
                 
-                <!-- TEXT 2 -->
-                <div>
-                    <h4 class="text-xl font-bold  mb-3">
-                        2. Pagás la inspección y agendamos
-                    </h4>
-                    <p class=" leading-relaxed">
-                        Una vez recibido el pago, coordinamos día y horario para realizar
-                        la inspección del vehículo en el lugar acordado.
-                    </p>
+                <div id="carouselSlider" class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
+                    
+                    <div class="w-full flex-shrink-0">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-4">
+                            <div class="order-2 md:order-1">
+                                <img src="assets/img/demo-01.png" alt="Solicitud" class="w-full rounded-xl shadow-lg" />
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <span class="text-blue-600 font-bold text-lg">01.</span>
+                                <h4 class="text-2xl font-bold mb-4">Completas el formulario de solicitud</h4>
+                                <p class="text-gray-600 text-lg leading-relaxed">
+                                    Nos mandas los datos del auto a verificar y el lugar donde se encuentra. Es rápido y sencillo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-shrink-0">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-4">
+                            <div class="order-2 md:order-1">
+                                <img src="assets/img/demo-02.png" alt="Inspección" class="w-full rounded-xl shadow-lg" />
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <span class="text-blue-600 font-bold text-lg">02.</span>
+                                <h4 class="text-2xl font-bold mb-4">Pagás la inspección y agendamos</h4>
+                                <p class="text-gray-600 text-lg leading-relaxed">
+                                    Una vez recibido el pago, coordinamos día y horario para realizar la inspección del vehículo en el lugar acordado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex-shrink-0">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-4">
+                            <div class="order-2 md:order-1">
+                                <img src="assets/img/demo-03.png" alt="Informe" class="w-full rounded-xl shadow-lg" />
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <span class="text-blue-600 font-bold text-lg">03.</span>
+                                <h4 class="text-2xl font-bold mb-4">Recibís un informe detallado</h4>
+                                <p class="text-gray-600 text-lg leading-relaxed">
+                                    Reporte sobre el estado real del vehículo, con observaciones claras para tomar una decisión segura antes de comprar.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
+                <button onclick="moveStepSlider(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition ml-2 z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                <button onclick="moveStepSlider(1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white transition mr-2 z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
             </div>
 
-            <!-- ROW 3 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-20">
-
-                <!-- IMAGE LEFT -->
-                <div class="fade-in">
-                    <img 
-                        src="assets/img/demo-03.png"
-                        alt="Ejemplo de informe de verificación Automarketpro"
-                        class="w-full rounded-xl"
-                    />
-                </div>
-
-                <!-- TEXT CENTER -->
-                <div class="text-center md:text-left fade-in">
-                    <h4 class="text-2xl font-bold  mb-4">
-                        3. Recibís un informe detallado
-                    </h4>
-                    <p class=" text-lg leading-relaxed">
-                        Reporte sobre el estado real del vehículo,
-                        con observaciones claras para tomar una decisión segura antes de comprar.
-                    </p>
-                </div>
-
-                <!-- IMAGE RIGHT -->
-                <div class="fade-in">
-                    <img 
-                        src="assets/img/demo-04.png"
-                        alt="Detalle del reporte de inspección vehicular"
-                        class="w-full rounded-xl"
-                    />
-                </div>
-
+            <div class="flex justify-center mt-8 gap-2">
+                <button onclick="goToStepSlide(0)" class="step-dot w-3 h-3 rounded-full bg-blue-600 transition-colors"></button>
+                <button onclick="goToStepSlide(1)" class="step-dot w-3 h-3 rounded-full bg-gray-300 transition-colors"></button>
+                <button onclick="goToStepSlide(2)" class="step-dot w-3 h-3 rounded-full bg-gray-300 transition-colors"></button>
             </div>
         </div>
     </section>
+
 
     <!-- CTA -->
     <section id="cta" class="fade-in py-20 text-center">
