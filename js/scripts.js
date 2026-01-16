@@ -140,16 +140,21 @@ async function renderVerificados() {
 
     try {
         const res = await fetch('https://automarketpro.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=12');
+        
+        // 1. Validar respuesta de red
+        if (!res.ok) throw new Error('Error en la red');
+        
         const data = await res.json();
         const items = data.items || [];
 
+        // 2. Renderizado
         container.innerHTML = items.map(v => {
             const imgUrl = (v.rutaArchivos && v.rutaArchivos.length > 0) ? v.rutaArchivos[0] : 'placeholder.jpg';
             return `
-                <div class="w-[280px] sm:w-[300px] md:w-[240px] snap-start bg-white rounded-2xl overflow-hidden shadow-lg carousel-card">
+                <div class="w-[280px] sm:w-[300px] md:w-[240px] snap-start bg-white rounded-2xl overflow-hidden shadow-lg carousel-card" style="will-change: transform;">
                     <a href="https://app.automarketpro.com.ar/verificados" class="block">
                         <div class="w-full h-48 bg-gray-100 overflow-hidden">
-                            <img src="${imgUrl}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="${v.marca}">
+                            <img src="${imgUrl}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="${v.marca}" loading="lazy">
                         </div>
                         <div class="p-4">
                             <h6 class="font-bold text-gray-800 truncate text-sm">${v.marca} ${v.modelo}</h6>
@@ -160,27 +165,35 @@ async function renderVerificados() {
             `;
         }).join('');
 
-        // Efecto de rotación optimizado
-        container.addEventListener("scroll", () => {
-            requestAnimationFrame(() => {
-                const cards = container.querySelectorAll(".carousel-card");
-                const centerX = window.innerWidth / 2;
-                
-                cards.forEach(card => {
-                    const rect = card.getBoundingClientRect();
-                    const cardCenter = rect.left + rect.width / 2;
-                    const offset = (centerX - cardCenter) * 0.02; // Sensibilidad
-                    const rotation = Math.max(Math.min(offset, 12), -12); // Límite de 12 grados
-                    
-                    // translateZ(0) es el truco mágico para Safari
-                    card.style.transform = `perspective(1000px) rotateY(${rotation}deg) translateZ(0)`;
-                });
-            });
-        }, { passive: true });
+        // 3. Inicializar el efecto DESPUÉS de renderizar
+        initCarouselEffect(container);
 
     } catch (err) {
+        container.innerHTML = '<p class="text-center p-4">No se pudieron cargar los vehículos.</p>';
         console.error('Error:', err);
     }
+}
+
+function initCarouselEffect(container) {
+    const cards = container.querySelectorAll(".carousel-card");
+    
+    container.addEventListener("scroll", () => {
+        requestAnimationFrame(() => {
+            const centerX = window.innerWidth / 2;
+            
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + (rect.width / 2);
+                
+                // Calculamos la distancia al centro de la pantalla
+                const distanceFromCenter = centerX - cardCenter;
+                const rotation = Math.max(Math.min(distanceFromCenter * 0.02, 12), -12);
+                
+                // Usamos transformaciones 3D optimizadas
+                card.style.transform = `perspective(1000px) rotateY(${rotation}deg) translateZ(0)`;
+            });
+        });
+    }, { passive: true });
 }
 
 /**
