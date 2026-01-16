@@ -15,18 +15,6 @@ document.querySelectorAll(".fade-in, .reveal").forEach(el => observer.observe(el
 
 
 // Mobile menu
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-
-    // Animación hamburguesa
-    menuBtn.children[0].classList.toggle("rotate-45");
-    menuBtn.children[1].classList.toggle("opacity-0");
-    menuBtn.children[2].classList.toggle("-rotate-45");
-});
-
 const header = document.getElementById("ghia-header");
 
 window.addEventListener("scroll", () => {
