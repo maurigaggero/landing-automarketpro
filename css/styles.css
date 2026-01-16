@@ -378,7 +378,7 @@ body {
 /* Contenedor principal en Grid */
     .contenedor-reels-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+        grid-template-columns: repeat(2, 1fr); /* 3 columnas en PC */
         gap: 20px; /* Espacio entre Reels */
         padding: 20px;
         max-width: 1200px; /* Ancho máximo de la sección */
