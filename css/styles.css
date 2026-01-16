@@ -370,3 +370,41 @@ body {
     display: none;
     /* Chrome, Safari, Opera */
 }
+
+
+/* =========================================================
+   INSTAGRAM REEL EMBED CUSTOMIZATION
+   ========================================================= */
+/* Contenedor principal en Grid */
+    .contenedor-reels-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+        gap: 20px; /* Espacio entre Reels */
+        padding: 20px;
+        max-width: 1200px; /* Ancho máximo de la sección */
+        margin: 0 auto; /* Centrar toda la sección */
+    }
+
+    /* Estilo para cada Reel */
+    .instagram-media {
+        margin: 0 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+        min-width: auto !important; /* Quitamos el mínimo para que el grid mande */
+        width: 100% !important;
+    }
+
+    /* Tablet: 2 columnas */
+    @media (max-width: 992px) {
+        .contenedor-reels-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Móvil: 1 columna */
+    @media (max-width: 600px) {
+        .contenedor-reels-grid {
+            grid-template-columns: 1fr;
+            padding: 10px;
+        }
+    }
