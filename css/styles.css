@@ -7,7 +7,7 @@
     --ghia-accent:    #4a618a;
 
     /* Rutas desde /css/styles.css */
-    --ghia-bg-hero: url('../assets/img/bg.jpg');
+    --ghia-bg-hero: url('../assets/img/bg_.jpg');
     --ghia-report-1: url('../assets/img/demo-01.jpg');
     --ghia-report-2: url('../assets/img/demo-02.jpg');
 }
