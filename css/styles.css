@@ -376,35 +376,36 @@ body {
    INSTAGRAM REEL EMBED CUSTOMIZATION
    ========================================================= */
 /* Contenedor principal en Grid */
-    .contenedor-reels-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 3 columnas en PC */
-        gap: 20px; /* Espacio entre Reels */
-        padding: 20px;
-        max-width: 1200px; /* Ancho máximo de la sección */
-        margin: 0 auto; /* Centrar toda la sección */
-    }
+  /* 1. El Grid: Ahora con 3 columnas en PC */
+/* Contenedor principal */
+.contenedor-reels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    /* Estilo para cada Reel */
-    .instagram-media {
-        margin: 0 !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-        min-width: auto !important; /* Quitamos el mínimo para que el grid mande */
-        width: 100% !important;
-    }
+/* El "molde" que evita el salto */
+.reel-wrapper {
+    position: relative;
+    width: 100%;
+    /* Relación de aspecto típica de un Reel (9:16) */
+    aspect-ratio: 9 / 16; 
+    background-color: #f0f2f5; /* Color de carga */
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 540px; /* Altura mínima de seguridad */
+}
 
-    /* Tablet: 2 columnas */
-    @media (max-width: 992px) {
-        .contenedor-reels-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* Móvil: 1 columna */
-    @media (max-width: 600px) {
-        .contenedor-reels-grid {
-            grid-template-columns: 1fr;
-            padding: 10px;
-        }
-    }
+/* Forzar al iframe de Instagram a llenar el molde */
+.reel-wrapper iframe, 
+.reel-wrapper .instagram-media {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+}
