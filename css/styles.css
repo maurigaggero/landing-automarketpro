@@ -7,7 +7,7 @@
     --ghia-accent:    #4a618a;
 
     /* Rutas desde /css/styles.css */
-    --ghia-bg-hero: url('../assets/img/bg.jpg');
+    --ghia-bg-hero: url('../assets/img/bg.png');
     --ghia-report-1: url('../assets/img/demo-01.jpg');
     --ghia-report-2: url('../assets/img/demo-02.jpg');
 }
@@ -75,7 +75,7 @@ body {
 .hero-bg {
     /* Gradiente que se adapta */
     background-image: 
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%), 
+        linear-gradient(to top, rgba(77, 77, 77, 0.6) 0%, rgba(202, 202, 202, 0.7) 100%), 
         var(--ghia-bg-hero);
     background-position: center;
     background-size: cover;
@@ -87,7 +87,7 @@ body {
 @media (min-width: 1024px) {
     .hero-bg {
         background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.9) 100%), 
+        linear-gradient(to right, rgba(77, 77, 77, 0.6) 0%, rgb(202, 202, 202, 0.7) 100%), 
             var(--ghia-bg-hero);
         background-attachment: fixed;
     }
