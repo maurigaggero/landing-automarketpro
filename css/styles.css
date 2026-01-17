@@ -391,12 +391,21 @@ body {
 .reel-wrapper {
     position: relative;
     width: 100%;
-    /* Relación de aspecto típica de un Reel (9:16) */
     aspect-ratio: 9 / 16; 
-    background-color: #f0f2f5; /* Color de carga */
-    border-radius: 12px;
-    overflow: hidden;
-    min-height: 540px; /* Altura mínima de seguridad */
+    background-color: #f8f9fa; 
+    
+    /* Bordes Pro */
+    border-radius: 20px; /* Un poco más curvo se ve más moderno/App */
+    overflow: hidden; /* Corta el contenido que sobresale */
+    
+    /* Fuerza el renderizado de los bordes en navegadores móviles */
+    isolation: isolate; 
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* Forzar al iframe de Instagram a llenar el molde */
@@ -408,4 +417,5 @@ body {
     width: 100% !important;
     height: 100% !important;
     margin: 0 !important;
+    border-radius: 20px !important;
 }
