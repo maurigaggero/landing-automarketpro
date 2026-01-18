@@ -166,135 +166,116 @@
             </div>
 
             <section class="py-12 text-center">
-                <a href="https://app.automarketpro.com.ar/solicitud/0"
+                <!-- <a href="https://app.automarketpro.com.ar/solicitud/0"
                 class="btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl
                         hover:bg-blue-700 transition-all shadow-lg">
                     Agendar inspección ahora
+                </a> -->
+                <a class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-lg rounded-full shadow-2xl shadow-blue-200 hover:transform hover:-translate-y-1 transition-all font-bold" 
+                    href="https://app.automarketpro.com.ar/solicitud/0">
+                        Agendar inspección ahora
                 </a>
-                <p class="text-gray-300 text-xs mt-3 font-medium flex items-center justify-center gap-2">
-                    <i class="fas fa-check-circle"></i>
+                <p class="text-xs mt-3 font-medium flex items-center justify-center gap-2">
+                    <i class="fas fa-check-circle text-blue-600"></i>
                     Disponibilidad inmediata en CABA y GBA
                 </p>
             </section>
 
-        <section class="py-16 bg-primary overflow-hidden">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Reseñas en Google</h3>
-                        <p class="text-blue-200 text-sm mt-1">Opiniones nuestros clientes.</p>
-                    </div>
-                    <div class="hidden md:flex gap-2">
-                        <button onclick="document.getElementById('google-reviews').scrollBy({left: -350, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/10 text-white hover:bg-white hover:text-blue-900 transition-all">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="document.getElementById('google-reviews').scrollBy({left: 350, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/10 text-white hover:bg-white hover:text-blue-900 transition-all">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="google-reviews" class="google-scroll-container">
-                    
-                    <div class="review-card-pro">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
-                        <div class="stars-large text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <section class="py-16 bg-primary overflow-hidden">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h3 class="text-2xl font-bold">Reseñas en Google</h3>
+                            <p class="text-blue-500 text-sm mt-1">Opiniones nuestros clientes.</p>
                         </div>
-                        <p class="mb-6 flex-grow font-medium">
-                            "Excelente servicio. El informe fue súper detallado y me salvó de comprar un auto que tenía el kilometraje adulterado."
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">MC</div>
-                            <div class="text-left">
-                                <h4 class="font-bold text-sm">Mariano Costa</h4>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 2 días</span>
+                        <div class="hidden md:flex gap-2">
+                            <button onclick="document.getElementById('google-reviews').scrollBy({left: -350, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/10 text-gray hover:bg-white hover:text-blue-900 transition-all">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button onclick="document.getElementById('google-reviews').scrollBy({left: 350, behavior: 'smooth'})" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/10 text-gray hover:bg-white hover:text-blue-900 transition-all">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="google-reviews" class="google-scroll-container">
+                        
+                        <div class="review-card-pro">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
+                            <div class="stars-large text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="review-card-pro">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
-                        <div class="stars-large text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-200"></i>
-                        </div>
-                        <p class="mb-6 flex-grow font-medium">
-                            "Súper puntuales y profesionales. Me explicaron todo en el momento de la revisión. Una herramienta clave para comprar."
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                            <img src="https://i.pravatar.cc/150?u=a2" class="w-10 h-10 rounded-full object-cover" alt="">
-                            <div class="text-left">
-                                <h4 class="font-bold text-sm">Luciana R.</h4>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 1 semana</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-card-pro">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
-                        <div class="stars-large text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="mb-6 flex-grow font-medium">
-                            "El escaneo electrónico detectó fallas que no se veían. Gracias a Automarketpro pude bajar el precio del auto."
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                            <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-gray-400 font-bold text-sm">JP</div>
-                            <div class="text-left">
-                                <h4 class="font-bold text-sm">Juan Pablo</h4>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Local Guide</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-card-pro">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
-                        <div class="stars-large text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-200"></i>
-                        </div>
-                        <p class="mb-6 flex-grow font-medium">
-                            "Solicité la verificación por la mañana y al día siguiente ya tenía el informe completo. Muy profesionales."
-                        </p>
-                        <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
-                            <img src="https://i.pravatar.cc/150?u=a4" class="w-10 h-10 rounded-full object-cover" alt="">
-                            <div class="text-left">
-                                <h4 class="font-bold text-sm">Ricardo G.</h4>
-                                <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 1 mes</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-            <a href="https://app.automarketpro.com.ar/solicitud/0" style="text-decoration: none; color: inherit; display: block;">
-                <div id="inspeccion-detalle" class="fade-in pt-10 border-t border-white/10">
-                    <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">
-                        Servicio de Inspección Pre Compra
-                    </h3>
-                    <div class="flex justify-center mb-16">
-                        <div class="relative group">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                            <div class="relative px-8 py-6 bg-secondary rounded-xl border border-blue-500/30 text-center shadow-2xl">
-                                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
-                                    Tarifa Promocional
-                                </span>
-                                <p class="text-gray-400 text-sm uppercase tracking-widest mb-1">Servicio de Inspección</p>
-                                <div class="flex items-center justify-center gap-3">
-                                    <span class="text-4xl md:text-5xl font-extrabold text-white">
-                                        $99.000
-                                    </span>
+                            <p class="mb-6 flex-grow font-medium">
+                                "Excelente servicio. El informe fue súper detallado y me salvó de comprar un auto que tenía el kilometraje adulterado."
+                            </p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">MC</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-sm">Mariano Costa</h4>
+                                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 2 días</span>
                                 </div>
-                                <p class="text-blue-400 text-sm mt-2 font-medium">
-                                    <i class="fas fa-check-circle mr-1"></i> Precio final con informe incluido
-                                </p>
+                            </div>
+                        </div>
+
+                        <div class="review-card-pro">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
+                            <div class="stars-large text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-200"></i>
+                            </div>
+                            <p class="mb-6 flex-grow font-medium">
+                                "Súper puntuales y profesionales. Me explicaron todo en el momento de la revisión. Una herramienta clave para comprar."
+                            </p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                <img src="https://i.pravatar.cc/150?u=a2" class="w-10 h-10 rounded-full object-cover" alt="">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-sm">Luciana R.</h4>
+                                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 1 semana</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card-pro">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
+                            <div class="stars-large text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="mb-6 flex-grow font-medium">
+                                "El escaneo electrónico detectó fallas que no se veían. Gracias a Automarketpro pude bajar el precio del auto."
+                            </p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-gray-400 font-bold text-sm">JP</div>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-sm">Juan Pablo</h4>
+                                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Local Guide</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card-pro">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" class="google-badge" alt="Google">
+                            <div class="stars-large text-yellow-400">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-200"></i>
+                            </div>
+                            <p class="mb-6 flex-grow font-medium">
+                                "Solicité la verificación por la mañana y al día siguiente ya tenía el informe completo. Muy profesionales."
+                            </p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                <img src="https://i.pravatar.cc/150?u=a4" class="w-10 h-10 rounded-full object-cover" alt="">
+                                <div class="text-left">
+                                    <h4 class="font-bold text-sm">Ricardo G.</h4>
+                                    <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Hace 1 mes</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+            </section>
+
+            <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">
+                Servicio de Inspección Pre compra
+            </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
+               
                 <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
                         <h4 class="text-xl font-semibold flex items-center gap-3">
@@ -305,8 +286,8 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-300 text-sm animate-slide-down">
-                        Realizamos un escaneo electrónico detectando fallas ocultas y analizando el historial profundo del vehículo.
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Realizamos un escaneo electrónico detectando fallas ocultas y analizando el historial profundo del vehículo.</p>
                     </div>
                 </details>
 
@@ -320,8 +301,8 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-300 text-sm animate-slide-down">
-                        Inspección técnica del motor, fugas e integridad del <strong>chasis y carrocería</strong>.
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Inspección técnica del motor, fugas e integridad del <strong>chasis y carrocería</strong>.</p>
                     </div>
                 </details>
 
@@ -335,8 +316,8 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-300 text-sm animate-slide-down">
-                        Te informamos sobre posibles reparaciones próximas o cambios de piezas necesarios.
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Te informamos sobre posibles reparaciones próximas o cambios de piezas necesarios.</p>
                     </div>
                 </details>
 
@@ -350,11 +331,35 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-300 text-sm animate-slide-down">
-                        Detallamos la situación de multas y patentes para una transferencia segura.
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Detallamos la situación de multas y patentes para una transferencia segura.</p>
                     </div>
                 </details>
 
+            </div>
+
+            <div id="inspeccion-detalle" class="fade-in pt-20">
+                <a href="https://app.automarketpro.com.ar/solicitud/0" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="flex justify-center mb-16">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-900 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div class="relative px-8 py-6 bg-secondary rounded-xl border border-blue-500/30 text-center shadow-2xl">
+                                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                                    Tarifa Promocional
+                                </span>
+                                <p class="text-gray-600 text-sm uppercase tracking-widest mb-1">Servicio de Inspección</p>
+                                <div class="flex items-center justify-center gap-3">
+                                    <span class="text-4xl md:text-5xl font-extrabold">
+                                        $99.000
+                                    </span>
+                                </div>
+                                <p class="text-blue-400 text-sm mt-2 font-medium">
+                                    <i class="fas fa-check-circle mr-1"></i> Precio final con informe incluido
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
 
         </div>
@@ -391,7 +396,16 @@
 
     <section id="benefits" class="py-16 bg-primary">
         <div class="fade-in py-12 text-center">
-                <a href="https://app.automarketpro.com.ar/solicitud/0"
+                 <a class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-lg rounded-full shadow-2xl shadow-blue-200 hover:transform hover:-translate-y-1 transition-all font-bold" 
+                    href="https://app.automarketpro.com.ar/solicitud/0">
+                        Verificar este auto
+                </a>
+                <p class="text-xs mt-3 font-medium flex items-center justify-center gap-2">
+                    <i class="fas fa-check-circle text-blue-600"></i>
+                    Hacés la solicitud y nos ocupamos del resto.
+                </p>
+
+                <!-- <a href="https://app.automarketpro.com.ar/solicitud/0"
                 class="btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-xl
                         hover:bg-blue-700 transition-all shadow-lg">
                     Verificar este auto
@@ -399,34 +413,40 @@
                 <p class="text-gray-300 text-xs mt-3 font-medium flex items-center justify-center gap-2">
                     <i class="fas fa-check-circle"></i>
                     Hacés la solicitud y nos ocupamos del resto.
-                </p>
+                </p> -->
         </div>
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h3 class="text-3xl font-bold mb-12">¿Por qué elegir Automarketpro?</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <div class="fade-in glass-card p-6">
-                    <i class="fas fa-car mb-4 text-3xl opacity-60"></i>
+                    <i class="fas fa-car mb-4 text-3xl text-blue-600 opacity-60"></i>
                     <div class="text-4xl font-bold">
                         <span>+</span><span class="counter" data-target="747">0</span>
                     </div>
-                    <div class="opacity-80 mt-2 font-medium">Vehículos verificados</div>
+                    <div class="opacity-80 mt-2 font-medium">
+                        <p>Vehículos verificados</p>
+                    </div>
                 </div>
 
                 <div class="fade-in glass-card p-6">
-                    <i class="fas fa-clipboard-list mb-4 text-3xl opacity-60"></i>
+                    <i class="fas fa-clipboard-list mb-4 text-3xl text-blue-600 opacity-60"></i>
                     <div class="text-4xl font-bold">
                         <span class="counter" data-target="120">0</span>
                     </div>
-                    <div class="opacity-80 mt-2 font-medium">Puntos de control por informe</div>
+                    <div class="opacity-80 mt-2 font-medium">
+                        <p>Puntos de control por informe</p>
+                    </div>
                 </div>
 
                 <div class="fade-in glass-card p-6">
-                    <i class="fas fa-gauge-high mb-4 text-3xl opacity-60"></i>
+                    <i class="fas fa-gauge-high mb-4 text-3xl text-blue-600 opacity-60"></i>
                     <div class="text-4xl font-bold">
                         <span class="counter" data-target="48">0</span><span>%</span>
                     </div>
-                    <div class="opacity-80 mt-2 font-medium">Fraude de kilometraje detectado</div>
+                    <div class="opacity-80 mt-2 font-medium">
+                        <p>Fraude de kilometraje detectado</p>
+                    </div>
                 </div>
 
             </div>
@@ -452,7 +472,7 @@
                             <div class="order-1 md:order-2">
                                 <span class="text-blue-600 font-bold text-lg">01.</span>
                                 <h4 class="text-2xl font-bold mb-4">Completas el formulario de solicitud</h4>
-                                <p class="text-white text-lg leading-relaxed">
+                                <p class="text-lg leading-relaxed">
                                     Nos envias los datos del auto a verificar y el lugar donde se encuentra. Es rápido y sencillo.
                                 </p>
                             </div>
@@ -467,7 +487,7 @@
                             <div class="order-1 md:order-2">
                                 <span class="text-blue-600 font-bold text-lg">02.</span>
                                 <h4 class="text-2xl font-bold mb-4">Pagás la inspección y agendamos</h4>
-                                <p class="text-white-600 text-lg leading-relaxed">
+                                <p class="text-lg leading-relaxed">
                                     Una vez recibido el pago, coordinamos día y horario para inspeccionar el vehículo en el lugar acordado.
                                     Podés estar presente junto al verificador.
                                 </p>
@@ -483,7 +503,7 @@
                             <div class="order-1 md:order-2">
                                 <span class="text-blue-600 font-bold text-lg">03.</span>
                                 <h4 class="text-2xl font-bold mb-4">Recibís un informe detallado</h4>
-                                <p class="text-white-600 text-lg leading-relaxed">
+                                <p class="text-lg leading-relaxed">
                                     Reporte sobre el estado real del vehículo, con observaciones claras para tomar una decisión segura antes de comprar.
                                 </p>
                             </div>
@@ -528,7 +548,7 @@
         
             <p class="text-xs mt-10 font-medium gap-2 max-w-sm mx-auto">
                 <span> Podés estar presente y ver el auto con nosotros
-                      <i class="fas fa-check-double mt-0.5 text-green-600"></i>
+                      <i class="fas fa-check-double mt-0.5 text-blue-600"></i>
                 </span>
             </p>
         </div>
@@ -542,7 +562,7 @@
                 <p class="opacity-80 mt-2"> Verificación pre-compra de vehículos.</p>
             </div>
             <div>
-                <h4 class="font-semibold mb-3">Menu</h4>
+                <h4 class="font-semibold mb-3">Navegación</h4>
                 <ul class="space-y-2 opacity-80 text-sm">
                 <li><a href="#features" class="nav-link">Nuestro servicio</a></li>
                 <li><a href="#benefits" class="nav-link">Por qué elegirnos</a></li>
@@ -630,7 +650,7 @@
 
            <!-- OPCIÓN FORMULARIO (PRIMARY, SIN PRESIÓN) -->
             <a href="https://app.automarketpro.com.ar/solicitud/0"
-            class="block w-full text-center mb-1 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition">
+            class="block w-full text-center mb-1 py-3 rounded-lg bg-blue-900 hover:bg-blue-600 text-white font-semibold transition">
                 Iniciar solicitud
             </a>
 

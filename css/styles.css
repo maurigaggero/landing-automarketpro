@@ -109,9 +109,13 @@ body {
 
 /* Nueva clase para secciones con color de marca */
 .bg-primary {
-    background-color: var(--ghia-primary);
-    color: #ffffff;
+    background-color: #fff;
+    color: var(--ghia-primary);
 }
+
+    .bg-primary h1,h2,h3,h4,h5,h6,p, span{
+        color: var(--ghia-primary);
+    }
 
 /* Ajuste para que las glass-cards resalten sobre fondo oscuro */
 .bg-primary .glass-card {
@@ -121,11 +125,11 @@ body {
 }
 
 .bg-primary .nav-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(44, 44, 44, 0.8);
 }
 
 .bg-primary .nav-link:hover {
-    color: #ffffff;
+    color: #1a1a1a;
 }
 
 
@@ -166,9 +170,9 @@ body {
 }
 
 .glass-footer {
-    background: var(--ghia-primary);
+    background:  #fff;
     backdrop-filter: blur(20px);
-    color: #fff;
+    color: var(--ghia-primary);
 }
 
 /* =========================================================
@@ -479,13 +483,13 @@ body {
 }
 
 .review-card-pro p { 
-    color: #1e293b !important; 
+    color: var(--ghia-primary) !important; 
     font-size: 0.95rem !important;
     line-height: 1.6 !important;
 }
 
 .review-card-pro h4 { 
-    color: #0f172a !important; 
+    color: var(--ghia-secondary) !important; 
     margin-bottom: 0 !important;
 }
 
