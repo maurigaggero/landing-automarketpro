@@ -419,3 +419,72 @@ body {
     margin: 0 !important;
     border-radius: 20px !important;
 }
+
+/* =========================================================
+   GOOGLE REVIEWS CARDS
+   ========================================================= */
+/* Contenedor del scroll */
+/* Contenedor principal del scroll */
+.google-scroll-container {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* El padding-left debe coincidir con el margen de tu contenedor (px-6 = 1.5rem aprox) */
+    padding: 20px 0 40px 0; 
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.google-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* La Card con tamaño controlado */
+.review-card-pro {
+    background-color: #ffffff !important;
+    width: 300px; /* Tamaño fijo para evitar que se agrande */
+    flex: 0 0 300px;
+    scroll-snap-align: center;
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .review-card-pro {
+        width: 300px;
+        flex: 0 0 350px;
+        scroll-snap-align: start;
+    }
+}
+
+.google-badge {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 22px;
+    height: 22px;
+}
+
+.stars-large {
+    font-size: 1rem; /* Estrellas grandes y claras */
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 2px;
+}
+
+.review-card-pro p { 
+    color: #1e293b !important; 
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+.review-card-pro h4 { 
+    color: #0f172a !important; 
+    margin-bottom: 0 !important;
+}
