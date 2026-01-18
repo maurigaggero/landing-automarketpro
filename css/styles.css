@@ -488,3 +488,19 @@ body {
     color: #0f172a !important; 
     margin-bottom: 0 !important;
 }
+
+/* =========================================================
+   COLLAPSE CARD / ACCORDION 
+   ========================================================= */
+/* Añade esto a tu CSS para una animación suave */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-down {
+    animation: slideDown 0.7s ease-out forwards;
+}
+/* Ocultar la flecha por defecto de la etiqueta summary */
+summary::-webkit-details-marker {
+    display: none;
+}
