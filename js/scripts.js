@@ -239,3 +239,14 @@ function initMobileMenu() {
         btn.children[2].classList.toggle("-rotate-45");
     });
 }
+
+/** * MODAL VERIFICACIÓN */
+function openVerificacionModal() {
+    document.getElementById('verificacionModal').classList.remove('hidden');
+    document.getElementById('verificacionModal').classList.add('flex');
+}
+
+function closeVerificacionModal() {
+    document.getElementById('verificacionModal').classList.add('hidden');
+    document.getElementById('verificacionModal').classList.remove('flex');
+}

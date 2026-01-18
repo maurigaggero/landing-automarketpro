@@ -607,14 +607,50 @@
     </footer>
 
     <!-- WHATSAPP FLOAT BUTTON -->
-    <a href="https://wa.me/5491124620786?text=Hola%20Automarketpro!%20Quiero%20contratar%20una%20verificación%20pre-compra"
-    target="_blank"
-    aria-label="WhatsApp Automarketpro"
-    class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition">
+    <button
+        type="button"
+        aria-label="Iniciar verificación"
+        class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg bg-green-500 hover:bg-green-600 transition"
+        onclick="openVerificacionModal()">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+    </button>
 
-    <i class="fab fa-whatsapp text-white text-3xl"></i>
+    <div id="verificacionModal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-50">
 
-    </a>
+        <div class="bg-white rounded-xl shadow-xl w-11/12 max-w-md p-6 animate-fade-in">
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                ¿Cómo querés iniciar la inspección?
+            </h3>
+
+            <p class="text-sm text-gray-600 mb-5">
+                Elegí la opción que prefieras. <br> Podrás hablar con un verificador en cualquier momento.
+            </p>
+
+           <!-- OPCIÓN FORMULARIO (PRIMARY, SIN PRESIÓN) -->
+            <a href="https://app.automarketpro.com.ar/solicitud/0"
+            class="block w-full text-center mb-1 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition">
+                Iniciar solicitud
+            </a>
+
+            <p class="text-xs text-gray-500 text-center mb-4">
+                Vas a poder revisar el detalle y el costo antes de pagar
+            </p>
+
+            <!-- OPCIÓN WHATSAPP (SECONDARY) -->
+            <a href="https://wa.me/5491124620786?text=Hola%20Automarketpro!%20Quiero%20consultar%20por%20una%20verificación%20pre-compra"
+            target="_blank"
+            class="block w-full text-center py-3 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+                Hablar por WhatsApp
+            </a>
+
+            <button onclick="closeVerificacionModal()"
+                    class="mt-4 text-sm text-gray-400 hover:text-gray-600 w-full">
+                Cancelar
+            </button>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="js/scripts.js"></script>
