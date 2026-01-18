@@ -75,7 +75,7 @@ body {
 .hero-bg {
     /* Gradiente que se adapta */
     background-image: 
-        linear-gradient(to top, rgba(77, 77, 77, 0.6) 0%, rgba(202, 202, 202, 0.7) 100%), 
+        linear-gradient(to bottom, rgba(77, 77, 77, 0.6) 0%, rgba(84, 128, 165, 0.6) 100%), 
         var(--ghia-bg-hero);
     background-position: center;
     background-size: cover;
@@ -87,7 +87,7 @@ body {
 @media (min-width: 1024px) {
     .hero-bg {
         background-image: 
-        linear-gradient(to right, rgba(77, 77, 77, 0.6) 0%, rgb(202, 202, 202, 0.7) 100%), 
+        linear-gradient(to right, rgba(77, 77, 77, 0.6) 0%, rgba(84, 128, 165, 0.6) 100%), 
             var(--ghia-bg-hero);
         background-attachment: fixed;
     }
