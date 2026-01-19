@@ -128,41 +128,96 @@
     <!-- FEATURES -->
    <section id="features" class="py-20 bg-primary">
         <div class="max-w-6xl mx-auto px-6">
-            
-            <h3 class="fade-in text-3xl md:text-4xl font-bold text-center mb-12">
-                La forma más segura de comprar un auto
+
+             <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">
+                Servicio de Inspección Pre compra
             </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                <div class="fade-in card-anim glass-card reveal p-6">
-                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
-                        <i class="fas fa-calendar-check text-blue-500"></i>
-                        Simple
-                    </h4>
-                    <p>
-                        Completás la solicitud online en 1 minuto.
-                    </p>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+               
+                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <h4 class="text-xl font-semibold flex items-center gap-3">
+                            <i class="fas fa-microchip text-blue-500"></i>
+                            Escaneo Completo
+                        </h4>
+                        <span class="transition group-open:rotate-180 text-blue-500">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Realizamos un escaneo electrónico detectando fallas ocultas y analizando el historial profundo del vehículo.</p>
+                    </div>
+                </details>
 
-                <div class="fade-in card-anim glass-card reveal p-6">
-                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
-                        <i class="fas fa-shield text-blue-500"></i>
-                        Seguro
-                    </h4>
-                    <p>
-                        Pagás reserva de forma segura y agendas automáticamente.
-                    </p>
-                </div>
+                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <h4 class="text-xl font-semibold flex items-center gap-3">
+                            <i class="fas fa-magnifying-glass text-blue-500"></i>
+                            Revisión mecánica
+                        </h4>
+                        <span class="transition group-open:rotate-180 text-blue-500">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Inspección técnica del motor, fugas e integridad del <strong>chasis y carrocería</strong>.</p>
+                    </div>
+                </details>
 
-                <div class="fade-in card-anim glass-card reveal p-6">
-                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
-                        <i class="fas fa-bolt text-blue-500"></i>
-                        Rápido
-                    </h4>
-                    <p>
-                        Recibis un informe completo del auto en 24hs.
-                    </p>
-                </div>
+                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <h4 class="text-xl font-semibold flex items-center gap-3">
+                            <i class="fas fa-exclamation-triangle text-blue-500"></i>
+                            Alertas Tempranas
+                        </h4>
+                        <span class="transition group-open:rotate-180 text-blue-500">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Te informamos sobre posibles reparaciones próximas o cambios de piezas necesarios.</p>
+                    </div>
+                </details>
+
+                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                        <h4 class="text-xl font-semibold flex items-center gap-3">
+                            <i class="fas fa-file-invoice text-blue-500"></i>
+                            Informe Legal
+                        </h4>
+                        <span class="transition group-open:rotate-180 text-blue-500">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 animate-slide-down">
+                        <p>Detallamos la situación de multas y patentes para una transferencia segura.</p>
+                    </div>
+                </details>
+
+            </div>
+
+            <div id="inspeccion-detalle" class="fade-in pt-20">
+                <a href="https://app.automarketpro.com.ar/solicitud/0" style="text-decoration: none; color: inherit; display: block;">
+                    <div class="flex justify-center mb-16">
+                        <div class="relative group">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-900 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div class="relative px-8 py-6 bg-secondary rounded-xl border border-blue-500/30 text-center shadow-2xl">
+                                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                                    Reserva ahora!
+                                </span>
+                                <p class="text-gray-600 text-sm uppercase tracking-widest mb-1">Precio Final</p>
+                                <div class="flex items-center justify-center gap-3">
+                                    <span class="text-4xl md:text-5xl font-extrabold">
+                                        $99.000
+                                    </span>
+                                </div>
+                                <p class="text-blue-600 text-sm mt-2 font-medium">
+                                     Reservá con <strong> $9.900 </strong> y pagá el saldo al recibir tu <strong>informe completo</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
 
             <section class="py-12 text-center">
@@ -271,97 +326,41 @@
                 </div>
             </section>
 
-            <h3 class="text-2xl md:text-4xl font-bold text-center mb-8">
-                Servicio de Inspección Pre compra
+            <h3 class="fade-in text-3xl md:text-4xl font-bold text-center mb-12">
+                La forma más segura de comprar un auto
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-               
-                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <h4 class="text-xl font-semibold flex items-center gap-3">
-                            <i class="fas fa-microchip text-blue-500"></i>
-                            Escaneo Completo
-                        </h4>
-                        <span class="transition group-open:rotate-180 text-blue-500">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </summary>
-                    <div class="px-6 pb-6 animate-slide-down">
-                        <p>Realizamos un escaneo electrónico detectando fallas ocultas y analizando el historial profundo del vehículo.</p>
-                    </div>
-                </details>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <div class="fade-in card-anim glass-card reveal p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
+                        <i class="fas fa-calendar-check text-blue-500"></i>
+                        Simple
+                    </h4>
+                    <p>
+                        Completás la solicitud online en 1 minuto.
+                    </p>
+                </div>
 
-                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <h4 class="text-xl font-semibold flex items-center gap-3">
-                            <i class="fas fa-magnifying-glass text-blue-500"></i>
-                            Revisión mecánica
-                        </h4>
-                        <span class="transition group-open:rotate-180 text-blue-500">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </summary>
-                    <div class="px-6 pb-6 animate-slide-down">
-                        <p>Inspección técnica del motor, fugas e integridad del <strong>chasis y carrocería</strong>.</p>
-                    </div>
-                </details>
+                <div class="fade-in card-anim glass-card reveal p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
+                        <i class="fas fa-shield text-blue-500"></i>
+                        Seguro
+                    </h4>
+                    <p>
+                        Pagás reserva de forma segura y agendas automáticamente.
+                    </p>
+                </div>
 
-                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <h4 class="text-xl font-semibold flex items-center gap-3">
-                            <i class="fas fa-exclamation-triangle text-blue-500"></i>
-                            Alertas Tempranas
-                        </h4>
-                        <span class="transition group-open:rotate-180 text-blue-500">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </summary>
-                    <div class="px-6 pb-6 animate-slide-down">
-                        <p>Te informamos sobre posibles reparaciones próximas o cambios de piezas necesarios.</p>
-                    </div>
-                </details>
-
-                <details class="group fade-in card-anim glass-card reveal p-0 overflow-hidden border border-white/10 rounded-xl transition-all duration-300">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <h4 class="text-xl font-semibold flex items-center gap-3">
-                            <i class="fas fa-file-invoice text-blue-500"></i>
-                            Informe Legal
-                        </h4>
-                        <span class="transition group-open:rotate-180 text-blue-500">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </summary>
-                    <div class="px-6 pb-6 animate-slide-down">
-                        <p>Detallamos la situación de multas y patentes para una transferencia segura.</p>
-                    </div>
-                </details>
-
+                <div class="fade-in card-anim glass-card reveal p-6">
+                    <h4 class="text-2xl font-semibold mb-3 flex items-center gap-3">
+                        <i class="fas fa-bolt text-blue-500"></i>
+                        Rápido
+                    </h4>
+                    <p>
+                        Recibis un informe completo del auto en 24hs.
+                    </p>
+                </div>
             </div>
-
-            <div id="inspeccion-detalle" class="fade-in pt-20">
-                <a href="https://app.automarketpro.com.ar/solicitud/0" style="text-decoration: none; color: inherit; display: block;">
-                    <div class="flex justify-center mb-16">
-                        <div class="relative group">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-900 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                            <div class="relative px-8 py-6 bg-secondary rounded-xl border border-blue-500/30 text-center shadow-2xl">
-                                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
-                                    Reserva ahora!
-                                </span>
-                                <p class="text-gray-600 text-sm uppercase tracking-widest mb-1">Precio Final</p>
-                                <div class="flex items-center justify-center gap-3">
-                                    <span class="text-4xl md:text-5xl font-extrabold">
-                                        $99.000
-                                    </span>
-                                </div>
-                                <p class="text-blue-600 text-sm mt-2 font-medium">
-                                     Reservá con <strong> $9.900 </strong> y pagá el saldo al recibir tu <strong>informe completo</strong>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
         </div>
     </section>
 
